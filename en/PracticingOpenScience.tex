@@ -1,0 +1,118 @@
+\documentclass[letterpaper,10pt]{book}
+\usepackage[utf8]{inputenc}
+
+% Set the margins and text area to comply with university guidelines
+% Use the geometry package to accomplish this. Binding edge must be
+% 40mm, other edges greater than 20mm (remember header/footer are outside
+\usepackage[
+  paper=letterpaper,
+  lmargin=1in,
+  rmargin=1in,
+  tmargin=1in,
+  bmargin=1in]{geometry}
+
+% Use symbols for footnotes rather than superscript numbers
+\renewcommand\thefootnote{\fnsymbol{footnote}}
+
+% Modify the captions so that they look better, the way I like them at least...
+\usepackage[font={small,bf},textfont=md,format=hang,margin=20pt,singlelinecheck=false]{caption}
+
+% Use the extra list environments available
+\usepackage{paralist}
+
+% Now to get better table handling
+\usepackage{tabularx}
+
+% Use the AMS packages for better mathematical typesetting
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%\usepackage[dvips,final]{graphicx}
+\usepackage[pdftex,final]{graphicx}
+\usepackage[pdftex]{color}
+
+% Use the varioref package for fancy references, \vref and friends
+\usepackage{varioref}
+
+% Program listings need to be typeset
+\usepackage[final]{listings}
+\lstloadlanguages{C++}
+\lstset{language=C++, captionpos=b, basicstyle=\footnotesize, commentstyle=\scriptsize, breaklines=true, showstringspaces=false, tabsize=2, xleftmargin=5mm, xrightmargin=5mm}
+
+\lstnewenvironment{cpplst}[1][]
+  {\lstset{language=C++, captionpos=b, basicstyle=\footnotesize, commentstyle=\scriptsize, breaklines=true,xleftmargin=5mm, xrightmargin=5mm, #1}
+  \singlespacing}
+  {\doublespacing}
+
+% Make fancy headers and everything...
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Headers - left, center and right.
+\lhead{Practicing Open Science}
+\chead{DRAFT}
+\rhead{Kitware, Inc.}
+% Footers - as before
+%\lfoot{\scriptsize \emph{\svnInfoFile}}
+\cfoot{\small \thepage}
+%\rfoot{\scriptsize \emph{Rev: \svnInfoRevision , \svnInfoDate}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+%\addtolength{\headheight}{0.5pt} % make space for the rule
+%\setlength{\headheight}{15pt}
+\fancypagestyle{plain}{%
+  \fancyhead{} % get rid of headers on plain pages
+  \renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+% Customise float placement
+\setcounter{topnumber}{4}
+\setcounter{totalnumber}{5}
+\renewcommand\topfraction{0.8}
+\renewcommand\floatpagefraction{0.7}
+
+\title{\textbf{Practicing Open Science:
+Changing the World Through Sharing Everything}}
+\date{\today}
+
+% Now to define several macros for commonly used abbreviations and such
+\usepackage{xspace}
+\newcommand{\eg}{\emph{e.g.},\xsapce}
+\newcommand{\ie}{\emph{i.e.},\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+
+\newcommand{\etal}{\emph{et al}\xspace}
+
+% Use the cite package to better organise citations
+\usepackage[superscript]{cite}
+% Put [] around the superscript citations
+\makeatletter
+\def\@citess#1{\textsuperscript{[#1]}}
+
+\usepackage{url}
+% Use in the form \url{http://mysite.co.uk/~marcus/} or \url!http://mysite.co.uk/~marcus/!
+
+\usepackage{colortbl}
+% 21st century - make some real links in the PDF, but keep the colors reasonable...
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=black,linkcolor=black,final=true]{hyperref}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section*{Foreword}
+
+Brief foreward introducing the book.
+
+\include{Broad}
+\include{Details}
+\include{CaseStudies}
+
+\end{document}
